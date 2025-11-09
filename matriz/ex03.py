@@ -6,7 +6,8 @@ matriz para o número 99. Mostre a matriz atualizada.
 from ex01 import matriz
 
 matriz[1][2] = 99
-for row in matriz:
-    for element in row:
-        print(element, end=' ')
-    print()
+if __name__ == "__main__":
+        for row in matriz:
+                for elem in row:
+                        print(elem, end=' ')
+                print()
