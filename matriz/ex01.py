@@ -13,10 +13,8 @@ matriz = [
         [1, 2, 3]
         ]
 
-
-for row in matriz:
-        for elem in row:
-            print(elem, end=' ')
-        print()
-
-
+if __name__ == "__main__":
+        for row in matriz:
+                for elem in row:
+                        print(elem, end=' ')
+                print()
