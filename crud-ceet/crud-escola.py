@@ -34,10 +34,13 @@ def cadastrarAluno():
 
     # Adiciona as informações do aluno na lista de alunos
     listaAlunos.append(aluno)
+    print('\nAluno cadastrado com sucesso!')
 
     # Cria arquivo de texto para visualiar os dados dos alunos
     with open('crud-ceet/alunos.txt', 'a', encoding='utf-8') as arquivo:
         arquivo.write(f'{nome} - Nota: {notaFinal} - Faltas: {totalFaltas} - Situação: {situacao}\n')
+        arquivo.close()
+        print("\nDados gravados no arquivo 'alunos.txt'.")
 
 # READ
 def listarAlunos():
@@ -51,7 +54,25 @@ def listarAlunos():
             print(f"Nota Final: {aluno['nota']}")
             print(f"Total de Faltas: {aluno['faltas']}")
             print(f"Situação: {aluno['situacao']}")
-            print("-" * 25)
+            print("-" * 26)
             print()
 
+# UPDATE
+def atualizarAluno():
+    listarAlunos()
+    if len(listaAlunos) == 0:
+        return
+    
+    indice = int(input('\n Digite o número do aluno que deseja atualizar'))
 
+    if indice < len(listaAlunos):
+        aluno = listaAlunos[indice]
+        print('--- Dados atuais do aluno ---')
+        print(f"Nome: {aluno['nome']}") 
+        print(f"Nota: {aluno['nota']}")
+        print(f"Faltas: {aluno['faltas']}")
+        print(f'Situação: {aluno['situacao']}')
+
+cadastrarAluno()
+listarAlunos()
+atualizarAluno()    
